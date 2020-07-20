@@ -53,6 +53,11 @@ socket.on('updatePlayers', (users) => {
     updateLayout(listItems);
 });
 
+socket.on('playerAlreadyExists', () => {
+    alert('Name already in use!');
+    window.location.href = "/";
+});
+
 const cardNames =
     [
         "ace_clubs",

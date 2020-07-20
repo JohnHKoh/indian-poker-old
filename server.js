@@ -6,13 +6,17 @@ const socketio = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-const {userJoin, getCurrentUser, userLeave, getUsers, getCards, shuffle} = require('./users.js');
+const {userJoin, userExists, getCurrentUser, userLeave, getUsers, getCards, shuffle} = require('./users.js');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
     console.log('New user connected');
     socket.on('joined', (name) => {
+        if (userExists(name)) {
+            socket.emit('playerAlreadyExists');
+            return;
+        }
         console.log(name + ' joined the game.');
         const cards = getCards();
         let card = -1;

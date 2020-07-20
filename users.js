@@ -8,6 +8,10 @@ function userJoin(id, name, card) {
     return user;
 }
 
+function userExists(name) {
+    return users.findIndex(user => user.name === name) !== -1;
+}
+
 function getCurrentUser(id) {
     return users.find(user => user.id === id);
 }
@@ -42,6 +46,7 @@ function shuffle() {
 
 module.exports = {
     userJoin,
+    userExists,
     getCurrentUser,
     userLeave,
     getUsers,
