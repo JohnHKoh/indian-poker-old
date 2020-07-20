@@ -21,6 +21,10 @@ $("#reshuffle").click(function() {
     socket.emit('reshuffle');
 });
 
+$("#exit").click(function() {
+    window.location.href = "/";
+});
+
 socket.emit('joined', q.name);
 
 socket.on('newPlayer', ({name, users}) => {
