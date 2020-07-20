@@ -15,9 +15,8 @@ function getCurrentUser(id) {
 function userLeave(id) {
     const u_index = users.findIndex(user => user.id === id);
     if(u_index !== -1) {
-        const cardv = users[u_index].card;
-        const c_index = cards.findIndex(card => card === cardv);
-        return users.splice(u_index, 1)[0] && cards.splice(c_index, 1)[0];
+        cards.splice(u_index, 1)
+        return users.splice(u_index, 1)[0];
     }
 }
 
@@ -37,6 +36,7 @@ function shuffle() {
             card = Math.floor(Math.random() * 52);
             users[i].card = card;
         } while(cards.includes(card));
+        cards.push(card);
     }
 }
 

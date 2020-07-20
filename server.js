@@ -33,9 +33,9 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
         const user = userLeave(socket.id);
-
         if(user) {
-            io.emit('updateUsers', getUsers());
+            console.log(user.name + ' left the game.');
+            io.emit('updatePlayers', getUsers());
         }
     })
 });
