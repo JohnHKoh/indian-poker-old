@@ -1,0 +1,1 @@
+Basic functionality of Indian Poker, where user can see every card but their own.
