@@ -6,7 +6,7 @@ const q = Qs.parse(location.search, {
 
 var updateLayout = function(listItems){
     var zero_start = 270; // if you want to start from a different position, should be positive
-    var offsetAngle = (180 / (listItems.length-1));
+    var offsetAngle = (315 / (listItems.length-1));
     for(var i = 0; i < listItems.length; i ++){
         var rotateAngle = zero_start + (offsetAngle * i || 0);
         $(listItems[i]).css("transform", "rotate(" + rotateAngle + "deg) translate(0, -200px) rotate(-" + rotateAngle + "deg)")
